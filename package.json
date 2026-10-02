@@ -1,0 +1,10 @@
+{
+  "name": "wrestler-showcase",
+  "version": "1.0.0",
+  "private": true,
+  "description": "$WRESTLER token showcase — videos, lore, and the Galaxy Wrestling game.",
+  "scripts": {
+    "dev": "python3 -m http.server 5177 --directory .",
+    "build": "node scripts/build.mjs"
+  }
+}

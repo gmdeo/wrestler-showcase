@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>$WRESTLER — Never Tap Out | Galaxy Wrestler Programme</title>
+<meta name="description" content="$WRESTLER on Robinhood Chain, paired with $GLXY. Watch the tapes, read the lore, play the game.">
+<meta property="og:title" content="$WRESTLER — Never Tap Out">
+<meta property="og:description" content="$WRESTLER on Robinhood Chain, paired with $GLXY. Watch the tapes, read the lore, play the game.">
+<meta property="og:type" content="website">
+<link rel="icon" href="posters/gritty-wrestler.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#05060f;
+    --ink2:#0b0e22;
+    --panel:#0e1230;
+    --line:#232a5c;
+    --pink:#f02e98;
+    --pink-hot:#ff4fb0;
+    --cyan:#35bdd2;
+    --gold:#ffd84a;
+    --text:#e9ecff;
+    --dim:#8a91b8;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:Inter,system-ui,-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* ---------- starfield ---------- */
+  #stars{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55}
+  .vign{position:fixed;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(ellipse 80% 60% at 50% 0%,transparent 0%,rgba(5,6,15,.72) 55%,var(--ink) 100%)}
+  .wrap{position:relative;z-index:2}
+
+  /* ---------- banner marquee ---------- */
+  .banner{
+    background:var(--pink);color:#fff;font-family:'Space Mono',monospace;
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    overflow:hidden;white-space:nowrap;padding:7px 0;
+  }
+  .banner .track{display:inline-block;animation:slide 42s linear infinite}
+  .banner span{padding:0 22px}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:40;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:12px clamp(16px,4vw,48px);
+    background:rgba(5,6,15,.82);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:Anton,sans-serif;letter-spacing:.06em;font-size:19px}
+  .brand img{width:30px;height:30px;object-fit:cover;border:1px solid var(--pink);border-radius:3px}
+  .brand b{color:var(--pink)}
+  .navlinks{display:flex;gap:22px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-family:'Space Mono',monospace}
+  .navlinks a{color:var(--dim);text-decoration:none;transition:color .16s}
+  .navlinks a:hover{color:var(--cyan)}
+  @media(max-width:720px){.navlinks{display:none}}
+
+  /* ---------- hero ---------- */
+  header.hero{
+    padding:clamp(48px,9vw,110px) clamp(16px,4vw,48px) clamp(32px,6vw,64px);
+    max-width:1200px;margin:0 auto;
+  }
+  .kicker{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--cyan);margin-bottom:20px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .kicker::before{content:"";width:34px;height:1px;background:var(--cyan)}
+  h1{
+    font-family:Anton,sans-serif;font-weight:400;
+    font-size:clamp(52px,13vw,152px);line-height:.86;letter-spacing:.005em;
+    text-transform:uppercase;
+  }
+  h1 .l1{display:block;color:#fff}
+  h1 .l2{
+    display:block;color:var(--pink);
+    text-shadow:0 0 34px rgba(240,46,152,.55),0 0 90px rgba(240,46,152,.22);
+  }
+  .lede{
+    margin-top:26px;max-width:640px;font-size:clamp(15px,1.7vw,18px);
+    line-height:1.7;color:#c3c9e8;
+  }
+  .lede strong{color:var(--gold);font-weight:600}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+  .btn{
+    font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.16em;
+    text-transform:uppercase;text-decoration:none;cursor:pointer;
+    padding:13px 24px;border:1px solid var(--cyan);background:transparent;color:var(--cyan);
+    transition:all .16s;display:inline-flex;align-items:center;gap:9px;
+  }
+  .btn:hover{background:var(--cyan);color:var(--ink)}
+  .btn.solid{background:var(--pink);border-color:var(--pink);color:#fff}
+  .btn.solid:hover{background:var(--pink-hot);border-color:var(--pink-hot);color:#fff}
+  .btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+  /* ---------- stats ---------- */
+  .stats{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
+    gap:1px;background:var(--line);border:1px solid var(--line);
+    margin-top:52px;
+  }
+  .stat{background:var(--ink2);padding:20px 20px 18px}
+  .stat .k{
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--dim);margin-bottom:9px;
+  }
+  .stat .v{font-family:Anton,sans-serif;font-size:clamp(22px,3.4vw,31px);color:#fff;letter-spacing:.01em}
+  .stat .v.up{color:#4ade80}.stat .v.down{color:#f87171}
+  .stat .sub{font-family:'Space Mono',monospace;font-size:10px;color:var(--dim);margin-top:6px}
+
+  /* ---------- ca row ---------- */
+  .ca{
+    margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;
+    border:1px dashed var(--line);padding:14px 18px;background:rgba(14,18,48,.5);
+  }
+  .ca .lab{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
+  .ca code{font-family:'Space Mono',monospace;font-size:12px;color:var(--gold);word-break:break-all}
+  .ca button{
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    background:var(--panel);color:var(--cyan);border:1px solid var(--cyan);
+    padding:7px 13px;cursor:pointer;transition:all .16s;
+  }
+  .ca button:hover{background:var(--cyan);color:var(--ink)}
+
+  /* ---------- section ---------- */
+  section{padding:clamp(56px,9vw,104px) clamp(16px,4vw,48px);max-width:1200px;margin:0 auto}
+  .shead{display:flex;align-items:baseline;gap:18px;margin-bottom:14px;flex-wrap:wrap}
+  .num{font-family:'Space Mono',monospace;font-size:12px;color:var(--pink);letter-spacing:.2em}
+  h2{
+    font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;
+    font-size:clamp(30px,5.4vw,58px);line-height:1;letter-spacing:.01em;color:#fff;
+  }
+  h2 em{font-style:normal;color:var(--cyan)}
+  .sub{color:var(--dim);font-size:14px;line-height:1.7;max-width:620px;margin-bottom:38px}
+
+  /* ---------- video grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
+  .card{
+    background:var(--panel);border:1px solid var(--line);cursor:pointer;
+    position:relative;overflow:hidden;transition:border-color .18s,transform .18s;
+    text-align:left;padding:0;color:inherit;font:inherit;
+  }
+  .card:hover{border-color:var(--pink);transform:translateY(-3px)}
+  .card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .thumb{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s,filter .35s}
+  .card:hover .thumb img{transform:scale(1.05)}
+  .play{
+    position:absolute;inset:0;display:grid;place-items:center;
+    background:linear-gradient(180deg,rgba(5,6,15,.1),rgba(5,6,15,.62));
+  }
+  .play i{
+    width:52px;height:52px;border:2px solid #fff;border-radius:50%;
+    display:grid;place-items:center;font-style:normal;
+    background:rgba(240,46,152,.9);border-color:var(--pink);
+    transition:transform .18s;
+  }
+  .card:hover .play i{transform:scale(1.12)}
+  .play i::after{content:"";border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+  .cbody{padding:14px 16px 16px}
+  .ctitle{font-family:Anton,sans-serif;font-size:19px;letter-spacing:.02em;text-transform:uppercase;color:#fff}
+  .ccap{font-size:12.5px;color:var(--dim);line-height:1.55;margin-top:6px}
+  .cmeta{
+    display:flex;justify-content:space-between;align-items:center;margin-top:12px;
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase;
+  }
+  .cmeta .tag{color:var(--cyan)}
+
+  /* ---------- lore marquee ---------- */
+  .lorewrap{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0;background:rgba(11,14,34,.45);overflow:hidden}
+  .row{display:flex;gap:18px;width:max-content;animation:roll 58s linear infinite}
+  .row.rev{animation-direction:reverse;animation-duration:72s;margin-top:18px}
+  .lorewrap:hover .row{animation-play-state:paused}
+  @keyframes roll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .tweet{
+    width:352px;flex:0 0 auto;background:var(--ink2);
+    border:1px solid var(--line);padding:18px 19px 16px;position:relative;
+  }
+  .tweet::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--pink);
+  }
+  .thead{display:flex;align-items:center;gap:10px;margin-bottom:11px}
+  .thead img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+  .thead .who{font-size:13px;font-weight:800;color:#fff;line-height:1.25}
+  .thead .at{font-family:'Space Mono',monospace;font-size:11px;color:var(--dim)}
+  .tbody{font-size:13.5px;line-height:1.62;color:#d3d8f2}
+  .tbody b{color:var(--pink-hot);font-weight:600}
+  .tbody .gold{color:var(--gold)}
+  .tfoot{
+    margin-top:12px;padding-top:11px;border-top:1px solid var(--line);
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--dim);
+  }
+  @media(max-width:560px){.tweet{width:290px}}
+
+  /* ---------- game ---------- */
+  .stage{
+    position:relative;border:1px solid var(--line);background:#000;
+    aspect-ratio:16/9;overflow:hidden;
+  }
+  .stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .stage .poster{
+    position:absolute;inset:0;display:grid;place-items:center;cursor:pointer;
+    background-size:cover;background-position:center;
+  }
+  .stage .poster .in{text-align:center;padding:22px;background:rgba(5,6,15,.72);border:1px solid var(--line)}
+  .stage .poster h3{font-family:Anton,sans-serif;font-size:clamp(22px,4vw,40px);text-transform:uppercase;color:#fff;letter-spacing:.02em}
+  .stage .poster p{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--cyan);margin-top:10px;text-transform:uppercase}
+  .keys{
+    display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;align-items:center;
+    font-family:'Space Mono',monospace;font-size:11px;color:var(--dim);
+  }
+  .keys kbd{
+    background:var(--panel);border:1px solid var(--line);color:var(--cyan);
+    padding:3px 8px;font-family:inherit;font-size:11px;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--line);padding:44px clamp(16px,4vw,48px) 60px;
+    max-width:1200px;margin:0 auto;
+  }
+  .fgrid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:26px;margin-bottom:30px}
+  .fcol h4{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+  .fcol a{display:block;color:var(--text);text-decoration:none;font-size:13.5px;margin-bottom:9px;transition:color .16s}
+  .fcol a:hover{color:var(--cyan)}
+  .fine{font-size:11.5px;color:var(--dim);line-height:1.75;border-top:1px solid var(--line);padding-top:22px;max-width:820px}
+  .fine b{color:#b9c0e0}
+
+  /* ---------- modal ---------- */
+  #modal{
+    position:fixed;inset:0;z-index:100;display:none;place-items:center;
+    background:rgba(3,4,12,.93);backdrop-filter:blur(8px);padding:clamp(12px,3vw,40px);
+  }
+  #modal.on{display:grid}
+  #modal .box{width:100%;max-width:1080px;position:relative}
+  #modal video{width:100%;display:block;background:#000;border:1px solid var(--line)}
+  #modal .mhead{
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+    margin-bottom:11px;flex-wrap:wrap;
+  }
+  #modal h3{font-family:Anton,sans-serif;font-size:22px;text-transform:uppercase;letter-spacing:.02em;color:#fff}
+  #modal .cls{
+    background:transparent;border:1px solid var(--line);color:var(--dim);
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    padding:8px 14px;cursor:pointer;
+  }
+  #modal .cls:hover{border-color:var(--pink);color:var(--pink)}
+  #modal .mcap{font-size:13px;color:var(--dim);margin-top:12px;line-height:1.6}
+
+  @media(prefers-reduced-motion:reduce){
+    .banner .track,.row{animation:none}
+    *{scroll-behavior:auto}
+  }
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="vign" aria-hidden="true"></div>
+
+<div class="wrap">
+
+  <div class="banner" aria-hidden="true">
+    <div class="track">
+      <span>★ Tonight in the Galaxy Arena ★</span><span>Commissioner Galaxy presides</span>
+      <span>★ The galaxy contracts… then EXPANDS ★</span><span>Supernova burns</span>
+      <span>★ Black-hole holders ★</span><span>Nebula tag teams</span>
+      <span>★ $WRESTLER / $GLXY on Robinhood Chain ★</span><span>Never tap out</span>
+      <span>★ Tonight in the Galaxy Arena ★</span><span>Commissioner Galaxy presides</span>
+      <span>★ The galaxy contracts… then EXPANDS ★</span><span>Supernova burns</span>
+      <span>★ Black-hole holders ★</span><span>Nebula tag teams</span>
+      <span>★ $WRESTLER / $GLXY on Robinhood Chain ★</span><span>Never tap out</span>
+    </div>
+  </div>
+
+  <nav>
+    <div class="brand">
+      <img src="posters/gritty-wrestler.jpg" alt="">
+      <span>$<b>WRESTLER</b></span>
+    </div>
+    <div class="navlinks">
+      <a href="#tapes">The Tapes</a>
+      <a href="#lore">The Lore</a>
+      <a href="#game">The Game</a>
+      <a href="#buy">Buy</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="kicker">Galaxy Wrestler Programme · Wrestling Club</div>
+    <h1>
+      <span class="l1">Never</span>
+      <span class="l2">Tap Out</span>
+    </h1>
+    <p class="lede">
+      The Wrestler is a cosmic grappler who never taps out. He trains in nebulae, pins FUD,
+      and escapes those selling the move on his way to Andromeda.
+      <strong>$WRESTLER</strong> lives on Robinhood Chain, paired with <strong>$GLXY</strong>.
+    </p>
+
+    <div class="cta">
+      <a class="btn solid" href="#tapes">▶ Watch the tapes</a>
+      <a class="btn" href="#game">Enter the arena</a>
+      <a class="btn" id="dexlink" href="https://dexscreener.com/robinhood/0x4baf4bea6775cc7269c6a5cc472f72eb5a0ff505289f376d69a5caeaa2cd4d7a" target="_blank" rel="noopener">Chart ↗</a>
+    </div>
+
+    <div class="stats" id="stats">
+      <div class="stat"><div class="k">On the scoreboard</div><div class="v" id="s-price">—</div><div class="sub" id="s-price-sub">price</div></div>
+      <div class="stat"><div class="k">Team weight</div><div class="v" id="s-mcap">—</div><div class="sub">market cap</div></div>
+      <div class="stat"><div class="k">Mat depth</div><div class="v" id="s-liq">—</div><div class="sub" id="s-liq-sub">liquidity pooled</div></div>
+      <div class="stat"><div class="k">Work rate</div><div class="v" id="s-vol">—</div><div class="sub" id="s-vol-sub">24h volume</div></div>
+    </div>
+
+    <div class="ca">
+      <span class="lab">Contract · Robinhood Chain</span>
+      <code id="ca">0xaB528169DCC80d68837a33b1e2b866bB7D7EE301</code>
+      <button id="copyca" type="button">Copy CA</button>
+    </div>
+  </header>
+
+  <section id="tapes">
+    <div class="shead">
+      <span class="num">01</span>
+      <h2>The <em>Tapes</em></h2>
+    </div>
+    <p class="sub">Every tape from the Programme. Click any card to play it full size.</p>
+    <div class="grid" id="grid">
+      <noscript><p class="sub">Enable JavaScript to load the tape library.</p></noscript>
+    </div>
+  </section>
+
+  <section id="lore" style="max-width:none;padding-left:0;padding-right:0">
+    <div style="max-width:1200px;margin:0 auto clamp(24px,4vw,38px);padding:0 clamp(16px,4vw,48px)">
+      <div class="shead">
+        <span class="num">02</span>
+        <h2>The <em>Lore</em></h2>
+      </div>
+      <p class="sub" style="margin-bottom:0">Rolling notes from the timeline — who the Wrestler is, how the room keeps score, and what happens when the galaxy expands. Hover to pause.</p>
+    </div>
+    <div class="lorewrap">
+      <div class="row" id="rowA"></div>
+      <div class="row rev" id="rowB"></div>
+    </div>
+  </section>
+
+  <section id="game">
+    <div class="shead">
+      <span class="num">03</span>
+      <h2>The <em>Arena</em></h2>
+    </div>
+    <p class="sub">Galaxy Wrestling — rhythm wrestling in the Galaxy Arena. Hit the notes, keep control, land the Galaxy Driver.</p>
+
+    <div class="stage" id="stage">
+      <div class="poster" id="gamePoster" style="background-image:url('posters/storm.jpg')" role="button" tabindex="0" aria-label="Load the game">
+        <div class="in">
+          <h3>Galaxy Wrestling</h3>
+          <p>▶ Click to load the game</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="keys">
+      <kbd>←</kbd><kbd>↓</kbd><kbd>↑</kbd><kbd>→</kbd><span>hit notes</span>
+      <kbd>Any key</kbd><span>kick out</span>
+      <span style="margin-left:auto"><a href="https://galaxy-wrestling.vercel.app" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none">Open full screen ↗</a></span>
+    </div>
+  </section>
+
+  <footer id="buy">
+    <div class="fgrid">
+      <div class="fcol">
+        <h4>The Programme</h4>
+        <a href="#tapes">The Tapes</a>
+        <a href="#lore">The Lore</a>
+        <a href="#game">The Arena</a>
+      </div>
+      <div class="fcol">
+        <h4>Official</h4>
+        <a href="https://x.com/wrestler_galaxy" target="_blank" rel="noopener">X / @wrestler_galaxy ↗</a>
+        <a href="https://dexscreener.com/robinhood/0x4baf4bea6775cc7269c6a5cc472f72eb5a0ff505289f376d69a5caeaa2cd4d7a" target="_blank" rel="noopener">DexScreener ↗</a>
+      </div>
+      <div class="fcol">
+        <h4>Contract</h4>
+        <a href="#" id="caFoot" style="font-family:'Space Mono',monospace;font-size:12px;word-break:break-all">0xaB52…E301</a>
+      </div>
+    </div>
+    <p class="fine">
+      <b>Community project.</b> $WRESTLER is an unofficial community token. Not affiliated with
+      Galaxy Digital, Mike Novogratz, Robinhood, or any named brand. Market data from public DEX feeds
+      and may be delayed or modelled. Nothing here is financial advice — size any buy to what you can
+      lose. Always verify the contract address and chain before trading.
+    </p>
+  </footer>
+
+</div>
+
+<div id="modal" role="dialog" aria-modal="true" aria-labelledby="mtitle">
+  <div class="box">
+    <div class="mhead">
+      <h3 id="mtitle">—</h3>
+      <button class="cls" id="mclose" type="button">Close ✕</button>
+    </div>
+    <video id="mvideo" controls playsinline preload="metadata"></video>
+    <p class="mcap" id="mcap"></p>
+  </div>
+</div>
+
+<script>
+/* ---------------- starfield ---------------- */
+(function(){
+  var c=document.getElementById('stars'),x=c.getContext('2d'),S=[],W,H;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){W=c.width=innerWidth;H=c.height=innerHeight;
+    var n=Math.min(190,Math.round(W*H/11000));S=[];
+    for(var i=0;i<n;i++)S.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.25,a:Math.random()*.65+.2,v:Math.random()*.11+.02});}
+  function draw(){
+    x.clearRect(0,0,W,H);
+    for(var i=0;i<S.length;i++){var s=S[i];
+      x.globalAlpha=s.a;x.fillStyle=i%7===0?'#f02e98':'#cfe4ff';
+      x.beginPath();x.arc(s.x,s.y,s.r,0,6.283);x.fill();
+      if(!reduce){s.y+=s.v;if(s.y>H){s.y=-3;s.x=Math.random()*W;}}}
+    x.globalAlpha=1;
+    if(!reduce)requestAnimationFrame(draw);
+  }
+  size();draw();addEventListener('resize',function(){size();if(reduce)draw();});
+})();
+
+/* ---------------- stats ---------------- */
+var PAIR='https://api.dexscreener.com/latest/dex/pairs/robinhood/0x4baf4bea6775cc7269c6a5cc472f72eb5a0ff505289f376d69a5caeaa2cd4d7a';
+function money(n){
+  if(n==null||isNaN(n))return '—';
+  if(n>=1e9)return '$'+(n/1e9).toFixed(2)+'B';
+  if(n>=1e6)return '$'+(n/1e6).toFixed(2)+'M';
+  if(n>=1e3)return '$'+(n/1e3).toFixed(1)+'K';
+  return '$'+Number(n).toFixed(2);
+}
+function price(n){
+  if(n==null||isNaN(n))return '—';
+  var a=Math.abs(n);
+  return '$'+(a<0.01?Number(n).toFixed(8):a<1?Number(n).toFixed(6):Number(n).toFixed(4));
+}
+fetch(PAIR).then(function(r){return r.json()}).then(function(d){
+  var p=d&&d.pair;if(!p)throw 0;
+  var ch=p.priceChange&&p.priceChange.h24;
+  var el=document.getElementById('s-price');
+  el.textContent=price(p.priceUsd);
+  el.className='v '+((ch||0)>=0?'up':'down');
+  document.getElementById('s-price-sub').textContent=(ch==null?'price':'price · '+(ch>=0?'+':'')+Number(ch).toFixed(2)+'% 24h');
+  document.getElementById('s-mcap').textContent=money(p.marketCap||p.fdv);
+  document.getElementById('s-liq').textContent=money(p.liquidity&&p.liquidity.usd);
+  document.getElementById('s-liq-sub').textContent=(p.liquidity&&p.liquidity.base)?(Math.round(p.liquidity.base/1e6)+'M WRESTLER pooled'):'liquidity pooled';
+  document.getElementById('s-vol').textContent=money(p.volume&&p.volume.h24);
+  var t=p.txns&&p.txns.h24;
+  document.getElementById('s-vol-sub').textContent=t?((t.buys+t.sells)+' trades in 24h'):'24h volume';
+}).catch(function(){
+  ['s-price','s-mcap','s-liq','s-vol'].forEach(function(id){document.getElementById(id).textContent='—';});
+});
+
+/* ---------------- videos ---------------- */
+var VIDS=[];
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(m){return({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[m]})}
+function mmss(s){s=Math.round(s||0);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+fetch('videos.json').then(function(r){return r.json()}).then(function(d){
+  VIDS=d.videos||[];
+  var g=document.getElementById('grid');
+  if(!VIDS.length){g.innerHTML='<p class="sub">No tapes yet.</p>';return}
+  g.innerHTML=VIDS.map(function(v,i){
+    return '<button class="card" data-i="'+i+'" aria-label="Play '+esc(v.title)+'">'
+      +'<span class="thumb"><img src="'+esc(v.poster)+'" alt="" loading="'+(i<3?'eager':'lazy')+'" decoding="async">'
+      +'<span class="play"><i></i></span></span>'
+      +'<span class="cbody"><span class="ctitle">'+esc(v.title)+'</span>'
+      +'<span class="ccap" style="display:block">'+esc(v.caption)+'</span>'
+      +'<span class="cmeta"><span class="tag">Tape '+String(i+1).padStart(2,'0')+'</span><span>'+mmss(v.duration)+'</span></span>'
+      +'</span></button>';
+  }).join('');
+  g.addEventListener('click',function(e){
+    var b=e.target.closest('.card');if(b)openVideo(+b.dataset.i);
+  });
+});
+
+/* ---------------- modal ---------------- */
+var modal=document.getElementById('modal'),mv=document.getElementById('mvideo');
+function openVideo(i){
+  var v=VIDS[i];if(!v)return;
+  document.getElementById('mtitle').textContent=v.title;
+  document.getElementById('mcap').textContent=v.caption||'';
+  mv.src=v.src;
+  modal.classList.add('on');
+  document.body.style.overflow='hidden';
+  mv.play().catch(function(){});
+  document.getElementById('mclose').focus();
+}
+function closeVideo(){
+  modal.classList.remove('on');
+  document.body.style.overflow='';
+  mv.pause();mv.removeAttribute('src');mv.load();
+}
+document.getElementById('mclose').addEventListener('click',closeVideo);
+modal.addEventListener('click',function(e){if(e.target===modal)closeVideo()});
+addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('on'))closeVideo()});
+
+/* ---------------- lore ---------------- */
+fetch('lore.json').then(function(r){return r.json()}).then(function(items){
+  function card(t){
+    return '<article class="tweet"><div class="thead">'
+      +'<img src="posters/gritty-wrestler.jpg" alt="">'
+      +'<div><div class="who">Galaxy Wrestler Programme</div><div class="at">@wrestler_galaxy</div></div>'
+      +'</div><div class="tbody">'+t.text+'</div>'
+      +'<div class="tfoot">'+esc(t.tag)+'</div></article>';
+  }
+  /* each row is duplicated so the -50% keyframe loops seamlessly */
+  var half=items.slice(0,Math.ceil(items.length/2));
+  var half2=items.slice(Math.ceil(items.length/2));
+  function fill(id,arr){
+    var h=arr.map(card).join('');
+    document.getElementById(id).innerHTML=h+h;
+  }
+  fill('rowA',half.length?half:items);
+  fill('rowB',half2.length?half2:items);
+});
+
+/* ---------------- copy CA ---------------- */
+document.getElementById('copyca').addEventListener('click',function(){
+  var b=this,ca=document.getElementById('ca').textContent.trim();
+  navigator.clipboard.writeText(ca).then(function(){
+    b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy CA'},1600);
+  }).catch(function(){
+    var t=document.createElement('textarea');t.value=ca;document.body.appendChild(t);t.select();
+    try{document.execCommand('copy');b.textContent='Copied ✓'}catch(_){b.textContent='Copy failed'}
+    t.remove();setTimeout(function(){b.textContent='Copy CA'},1600);
+  });
+});
+
+/* ---------------- game lazy load ---------------- */
+document.getElementById('gamePoster').addEventListener('click',function(){
+  var f=document.createElement('iframe');
+  f.src='https://galaxy-wrestling.vercel.app';
+  f.title='Galaxy Wrestling';
+  f.allow='autoplay; fullscreen; gamepad';
+  this.replaceWith(f);
+  f.focus();
+});
+document.getElementById('gamePoster').addEventListener('keydown',function(e){
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();this.click()}
+});
+</script>
+</body>
+</html>
