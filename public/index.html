@@ -117,11 +117,11 @@
   }
   .kicker::before{content:"";width:34px;height:1px;background:var(--cyan)}
 
-  /* Text left, mascot right. Collapses to a single stacked column when the
-     headline would otherwise have to shrink below its own line-height. */
+  /* Text left, mascot right. The mascot's top edge lines up with the top of
+     the headline, so the grid aligns to start rather than centre. */
   .herotop{
     display:grid;grid-template-columns:minmax(0,1fr) auto;
-    gap:clamp(20px,4vw,54px);align-items:center;
+    gap:clamp(20px,4vw,54px);align-items:start;
   }
   .herotext{min-width:0}
   .heromascot{
@@ -132,6 +132,10 @@
     background:radial-gradient(circle at 50% 44%,rgba(240,46,152,.22),rgba(10,6,32,.66) 74%);
     box-shadow:0 0 0 1px rgba(10,6,32,.6),0 0 54px rgba(240,46,152,.28);
     animation:breathe 6.5s ease-in-out infinite;
+    /* h1 line-height is .86, so the cap top of "NEVER" sits well below the h1
+       box top. Pull up by a fraction of the headline size to land on it.
+       Verified against measured cap-top at 1280px and mobile widths. */
+    margin-top:calc(clamp(52px,13vw,152px) * -0.014);
   }
   .heromascot img{
     width:100%;height:100%;display:block;object-fit:contain;
@@ -435,9 +439,10 @@
   </nav>
 
   <header class="hero">
+    <div class="kicker">Galaxy Wrestler Programme · Wrestling Club</div>
+
     <div class="herotop">
       <div class="herotext">
-        <div class="kicker">Galaxy Wrestler Programme · Wrestling Club</div>
         <h1>
           <span class="l1">Never</span>
           <span class="l2">Tap Out</span>
