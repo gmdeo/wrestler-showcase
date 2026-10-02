@@ -1,0 +1,6 @@
+raw/
+scripts/
+.git/
+.gitignore
+package.json
+*.log
