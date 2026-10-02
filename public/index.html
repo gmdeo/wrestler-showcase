@@ -360,12 +360,12 @@
       <span class="num">03</span>
       <h2>The <em>Arena</em></h2>
     </div>
-    <p class="sub">Galaxy Wrestling — rhythm wrestling in the Galaxy Arena. Hit the notes, keep control, land the Galaxy Driver.</p>
+    <p class="sub">$WRESTLER GALAXY — pixel-art rhythm wrestling. Follow the Flow Lane, keep control, never tap out.</p>
 
     <div class="stage" id="stage">
-      <div class="poster" id="gamePoster" style="background-image:url('posters/storm.jpg')" role="button" tabindex="0" aria-label="Load the game">
+      <div class="poster" id="gamePoster" style="background-image:url('posters/game-2d.jpg')" role="button" tabindex="0" aria-label="Load the game">
         <div class="in">
-          <h3>Galaxy Wrestling</h3>
+          <h3>$WRESTLER Galaxy</h3>
           <p>▶ Click to load the game</p>
         </div>
       </div>
@@ -373,8 +373,10 @@
 
     <div class="keys">
       <kbd>←</kbd><kbd>↓</kbd><kbd>↑</kbd><kbd>→</kbd><span>hit notes</span>
-      <kbd>Any key</kbd><span>kick out</span>
-      <span style="margin-left:auto"><a href="https://galaxy-wrestling.vercel.app" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none">Open full screen ↗</a></span>
+      <kbd>Enter</kbd><span>start</span>
+      <kbd>C</kbd><span>calibrate</span>
+      <kbd>M</kbd><span>mute</span>
+      <span style="margin-left:auto"><a href="https://wrestler-galaxy.vercel.app" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none">Open full screen ↗</a></span>
     </div>
   </section>
 
@@ -546,9 +548,9 @@ document.getElementById('copyca').addEventListener('click',function(){
 /* ---------------- game lazy load ---------------- */
 document.getElementById('gamePoster').addEventListener('click',function(){
   var f=document.createElement('iframe');
-  f.src='https://galaxy-wrestling.vercel.app';
-  f.title='Galaxy Wrestling';
-  f.allow='autoplay; fullscreen; gamepad';
+  f.src='https://wrestler-galaxy.vercel.app';
+  f.title='$WRESTLER GALAXY';
+  f.allow='autoplay; fullscreen';
   this.replaceWith(f);
   f.focus();
 });
