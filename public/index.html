@@ -8,16 +8,21 @@
 <meta property="og:title" content="$WRESTLER — Never Tap Out">
 <meta property="og:description" content="$WRESTLER on Robinhood Chain, paired with $GLXY. Watch the tapes, read the lore, play the game.">
 <meta property="og:type" content="website">
-<link rel="icon" href="posters/gritty-wrestler.jpg">
+<link rel="icon" href="brand/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="brand/mascot-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+<meta property="og:image" content="brand/mascot-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="brand/mascot-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#05060f;
+    --ink:#0a0620;
     --ink2:#0b0e22;
-    --panel:#0e1230;
-    --line:#232a5c;
+    --panel:#12103a;
+    --line:#2a2660;
     --pink:#f02e98;
     --pink-hot:#ff4fb0;
     --cyan:#35bdd2;
@@ -28,17 +33,47 @@
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    background:var(--ink);
     color:var(--text);
     font-family:Inter,system-ui,-apple-system,sans-serif;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
+    /* Galaxy field: deep space base, three nebula clouds, three tiled star layers. */
+    background-color:var(--ink);
+    background-image:
+      radial-gradient(58% 42% at 6% -10%, rgba(240,46,152,.50) 0%, rgba(240,46,152,0) 62%),
+      radial-gradient(54% 40% at 98% -6%, rgba(53,189,210,.42) 0%, rgba(53,189,210,0) 60%),
+      radial-gradient(46% 34% at 78% 44%, rgba(124,58,237,.34) 0%, rgba(124,58,237,0) 66%),
+      radial-gradient(72% 42% at 46% 112%, rgba(255,216,74,.22) 0%, rgba(255,216,74,0) 66%),
+      radial-gradient(circle at 13% 21%, rgba(255,255,255,.92) 1px, rgba(0,0,0,0) 1.6px),
+      radial-gradient(circle at 69% 57%, rgba(255,216,74,.85) 1px, rgba(0,0,0,0) 1.6px),
+      radial-gradient(circle at 38% 79%, rgba(240,46,152,.9) 1px, rgba(0,0,0,0) 1.6px),
+      radial-gradient(circle at 88% 33%, rgba(53,189,210,.85) 1px, rgba(0,0,0,0) 1.6px);
+    background-size:
+      100% 100%, 100% 100%, 100% 100%, 100% 100%,
+      130px 130px, 190px 190px, 95px 95px, 240px 240px;
+    background-repeat:no-repeat, no-repeat, no-repeat, no-repeat,
+      repeat, repeat, repeat, repeat;
+    background-attachment:fixed;
+  }
+  body::before{
+    /* Slow drifting nebula haze so the field feels alive, not wallpaper. */
+    content:"";position:fixed;inset:-20%;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(38% 30% at 22% 30%, rgba(240,46,152,.20), rgba(0,0,0,0) 70%),
+      radial-gradient(34% 28% at 74% 62%, rgba(53,189,210,.18), rgba(0,0,0,0) 70%),
+      radial-gradient(30% 26% at 52% 88%, rgba(124,58,237,.20), rgba(0,0,0,0) 70%);
+    animation:drift 52s ease-in-out infinite alternate;
+    will-change:transform;
+  }
+  @keyframes drift{
+    from{transform:translate3d(0,0,0) scale(1)}
+    to{transform:translate3d(-3%,2.5%,0) scale(1.08)}
   }
   /* ---------- starfield ---------- */
-  #stars{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55}
-  .vign{position:fixed;inset:0;z-index:1;pointer-events:none;
-    background:radial-gradient(ellipse 80% 60% at 50% 0%,transparent 0%,rgba(5,6,15,.72) 55%,var(--ink) 100%)}
-  .wrap{position:relative;z-index:2}
+  #stars{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.7}
+  .vign{position:fixed;inset:0;z-index:2;pointer-events:none;
+    background:radial-gradient(ellipse 96% 78% at 50% 6%,transparent 0%,rgba(10,6,32,.34) 64%,rgba(10,6,32,.80) 100%)}
+  .wrap{position:relative;z-index:3}
 
   /* ---------- banner marquee ---------- */
   .banner{
@@ -59,7 +94,11 @@
     border-bottom:1px solid var(--line);
   }
   .brand{display:flex;align-items:center;gap:10px;font-family:Anton,sans-serif;letter-spacing:.06em;font-size:19px}
-  .brand img{width:30px;height:30px;object-fit:cover;border:1px solid var(--pink);border-radius:3px}
+  .brand .chip{
+    width:34px;height:34px;flex:0 0 auto;border:1px solid var(--pink);border-radius:3px;
+    background:#0a0620;padding:3px;box-sizing:border-box;display:block;
+  }
+  .brand .chip img{width:100%;height:100%;display:block;object-fit:contain;image-rendering:pixelated}
   .brand b{color:var(--pink)}
   .navlinks{display:flex;gap:22px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-family:'Space Mono',monospace}
   .navlinks a{color:var(--dim);text-decoration:none;transition:color .16s}
@@ -71,12 +110,28 @@
     padding:clamp(48px,9vw,110px) clamp(16px,4vw,48px) clamp(32px,6vw,64px);
     max-width:1200px;margin:0 auto;
   }
+  .herochip{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:clamp(78px,11vw,116px);height:clamp(78px,11vw,116px);
+    margin-bottom:20px;padding:9px;box-sizing:border-box;
+    border:1px solid rgba(240,46,152,.55);border-radius:6px;
+    background:radial-gradient(circle at 50% 42%,rgba(240,46,152,.20),rgba(10,6,32,.72) 72%);
+    box-shadow:0 0 0 1px rgba(10,6,32,.6),0 0 42px rgba(240,46,152,.30);
+    animation:breathe 6.5s ease-in-out infinite;
+  }
+  .herochip img{width:100%;height:100%;display:block;object-fit:contain;image-rendering:pixelated}
+  @keyframes breathe{
+    0%,100%{box-shadow:0 0 0 1px rgba(10,6,32,.6),0 0 34px rgba(240,46,152,.24)}
+    50%{box-shadow:0 0 0 1px rgba(10,6,32,.6),0 0 58px rgba(240,46,152,.44)}
+  }
+  @media(prefers-reduced-motion:reduce){.herochip{animation:none}}
   .kicker{
-    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.3em;
-    text-transform:uppercase;color:var(--cyan);margin-bottom:20px;
-    display:flex;align-items:center;gap:10px;
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--cyan);margin-bottom:22px;
+    display:flex;align-items:center;justify-content:center;gap:12px;
   }
   .kicker::before{content:"";width:34px;height:1px;background:var(--cyan)}
+  .kicker::after{content:"";width:34px;height:1px;background:var(--cyan)}
   h1{
     font-family:Anton,sans-serif;font-weight:400;
     font-size:clamp(52px,13vw,152px);line-height:.86;letter-spacing:.005em;
@@ -179,8 +234,8 @@
 
   /* ---------- lore marquee ---------- */
   .lorewrap{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0;background:rgba(11,14,34,.45);overflow:hidden}
-  .row{display:flex;gap:18px;width:max-content;animation:roll 58s linear infinite}
-  .row.rev{animation-direction:reverse;animation-duration:72s;margin-top:18px}
+  .row{display:flex;gap:18px;width:max-content;animation:roll 105s linear infinite}
+  .row.rev{animation-direction:reverse;animation-duration:130s;margin-top:18px}
   .lorewrap:hover .row{animation-play-state:paused}
   @keyframes roll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   .tweet{
@@ -258,6 +313,19 @@
     max-width:1200px;margin:0 auto;
   }
   .fgrid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:26px;margin-bottom:30px}
+  .footbrand{
+    display:flex;align-items:center;gap:12px;margin-bottom:26px;
+    padding-bottom:22px;border-bottom:1px solid var(--line);
+  }
+  .footbrand .chip{
+    width:40px;height:40px;flex:0 0 auto;border:1px solid rgba(240,46,152,.55);
+    border-radius:5px;background:#0a0620;padding:4px;box-sizing:border-box;
+  }
+  .footbrand .chip img{width:100%;height:100%;display:block;object-fit:contain;image-rendering:pixelated}
+  .footbrand .fbtext{
+    font-family:Anton,sans-serif;font-size:17px;letter-spacing:.07em;
+    text-transform:uppercase;color:#fff;
+  }
   .fcol h4{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
   .fcol a{display:block;color:var(--text);text-decoration:none;font-size:13.5px;margin-bottom:9px;transition:color .16s}
   .fcol a:hover{color:var(--cyan)}
@@ -313,7 +381,7 @@
 
   <nav>
     <div class="brand">
-      <img src="posters/gritty-wrestler.jpg" alt="">
+      <span class="chip"><img src="brand/mascot-96.png" alt=""></span>
       <span>$<b>WRESTLER</b></span>
     </div>
     <div class="navlinks">
@@ -325,6 +393,7 @@
   </nav>
 
   <header class="hero">
+    <span class="herochip"><img src="brand/mascot-192.png" alt="$WRESTLER mascot"></span>
     <div class="kicker">Galaxy Wrestler Programme · Wrestling Club</div>
     <h1>
       <span class="l1">Never</span>
@@ -412,6 +481,10 @@
   </section>
 
   <footer id="buy">
+    <div class="footbrand">
+      <span class="chip"><img src="brand/mascot-96.png" alt=""></span>
+      <span class="fbtext">Galaxy Wrestler Programme</span>
+    </div>
     <div class="fgrid">
       <div class="fcol">
         <h4>The Programme</h4>
