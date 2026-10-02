@@ -47,6 +47,14 @@
       "src": "videos/wrestler-spidermeme.mp4",
       "poster": "posters/wrestler-spidermeme.jpg",
       "duration": 25
+    },
+    {
+      "slug": "chumba",
+      "title": "Chumba",
+      "caption": "Just end",
+      "src": "videos/chumba.mp4",
+      "poster": "posters/chumba.jpg",
+      "duration": 30
     }
   ]
 }
