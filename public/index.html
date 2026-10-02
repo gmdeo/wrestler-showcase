@@ -212,6 +212,12 @@
   }
   h2 em{font-style:normal;color:var(--cyan)}
   .sub{color:var(--dim);font-size:14px;line-height:1.7;max-width:620px;margin-bottom:38px}
+  /* Credit line tucked under the tapes intro; pulls up against .sub's 38px gap. */
+  .credit{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;
+    color:#5d6488;margin-top:-30px;margin-bottom:40px;
+  }
+  .credit b{color:#7b83ab;font-weight:700}
 
   /* ---------- video grid ---------- */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
@@ -452,6 +458,7 @@
       <h2>The <em>Tapes</em></h2>
     </div>
     <p class="sub">Every tape from the Programme. Click any card to play it full size.</p>
+    <p class="credit">all videos made with <b>$ARIA</b></p>
     <div class="grid" id="grid">
       <noscript><p class="sub">Enable JavaScript to load the tape library.</p></noscript>
     </div>
