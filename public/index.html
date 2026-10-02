@@ -116,6 +116,41 @@
     display:flex;align-items:center;gap:12px;
   }
   .kicker::before{content:"";width:34px;height:1px;background:var(--cyan)}
+
+  /* Text left, mascot right. Collapses to a single stacked column when the
+     headline would otherwise have to shrink below its own line-height. */
+  .herotop{
+    display:grid;grid-template-columns:minmax(0,1fr) auto;
+    gap:clamp(20px,4vw,54px);align-items:center;
+  }
+  .herotext{min-width:0}
+  .heromascot{
+    display:block;flex:0 0 auto;
+    width:clamp(150px,23vw,320px);height:clamp(150px,23vw,320px);
+    padding:clamp(10px,1.6vw,20px);box-sizing:border-box;
+    border:1px solid rgba(240,46,152,.5);border-radius:8px;
+    background:radial-gradient(circle at 50% 44%,rgba(240,46,152,.22),rgba(10,6,32,.66) 74%);
+    box-shadow:0 0 0 1px rgba(10,6,32,.6),0 0 54px rgba(240,46,152,.28);
+    animation:breathe 6.5s ease-in-out infinite;
+  }
+  .heromascot img{
+    width:100%;height:100%;display:block;object-fit:contain;
+    image-rendering:pixelated;
+  }
+  @keyframes breathe{
+    0%,100%{box-shadow:0 0 0 1px rgba(10,6,32,.6),0 0 40px rgba(240,46,152,.22)}
+    50%{box-shadow:0 0 0 1px rgba(10,6,32,.6),0 0 68px rgba(240,46,152,.44)}
+  }
+  @media(prefers-reduced-motion:reduce){.heromascot{animation:none}}
+  /* Below this the two-up would crush the headline, so stack it instead.
+     Mascot stays under the copy — it must not sit above the main text. */
+  @media(max-width:760px){
+    .herotop{grid-template-columns:1fr;gap:26px}
+    .heromascot{
+      width:clamp(130px,42vw,200px);height:clamp(130px,42vw,200px);
+      margin:0 auto;
+    }
+  }
   h1{
     font-family:Anton,sans-serif;font-weight:400;
     font-size:clamp(52px,13vw,152px);line-height:.86;letter-spacing:.005em;
@@ -400,21 +435,27 @@
   </nav>
 
   <header class="hero">
-    <div class="kicker">Galaxy Wrestler Programme · Wrestling Club</div>
-    <h1>
-      <span class="l1">Never</span>
-      <span class="l2">Tap Out</span>
-    </h1>
-    <p class="lede">
-      The Wrestler is a cosmic grappler who never taps out. He trains in nebulae, pins FUD,
-      and escapes those selling the move on his way to Andromeda.
-      <strong>$WRESTLER</strong> lives on Robinhood Chain, paired with <strong>$GLXY</strong>.
-    </p>
+    <div class="herotop">
+      <div class="herotext">
+        <div class="kicker">Galaxy Wrestler Programme · Wrestling Club</div>
+        <h1>
+          <span class="l1">Never</span>
+          <span class="l2">Tap Out</span>
+        </h1>
+        <p class="lede">
+          The Wrestler is a cosmic grappler who never taps out. He trains in nebulae, pins FUD,
+          and escapes those selling the move on his way to Andromeda.
+          <strong>$WRESTLER</strong> lives on Robinhood Chain, paired with <strong>$GLXY</strong>.
+        </p>
 
-    <div class="cta">
-      <a class="btn solid" href="#tapes">▶ Watch the tapes</a>
-      <a class="btn" href="#game">Enter the arena</a>
-      <a class="btn" id="dexlink" href="https://dexscreener.com/robinhood/0x4baf4bea6775cc7269c6a5cc472f72eb5a0ff505289f376d69a5caeaa2cd4d7a" target="_blank" rel="noopener">Chart ↗</a>
+        <div class="cta">
+          <a class="btn solid" href="#tapes">▶ Watch the tapes</a>
+          <a class="btn" href="#game">Enter the arena</a>
+          <a class="btn" id="dexlink" href="https://dexscreener.com/robinhood/0x4baf4bea6775cc7269c6a5cc472f72eb5a0ff505289f376d69a5caeaa2cd4d7a" target="_blank" rel="noopener">Chart ↗</a>
+        </div>
+      </div>
+
+      <span class="heromascot"><img src="brand/mascot-512.png" alt="$WRESTLER mascot"></span>
     </div>
 
     <div class="stats" id="stats">
