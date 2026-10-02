@@ -218,6 +218,9 @@
     color:#5d6488;margin-top:-30px;margin-bottom:40px;
   }
   .credit b{color:#7b83ab;font-weight:700}
+  /* In the arena the credit sits under the key legend, not the intro copy,
+     so it needs normal spacing instead of .credit's pull-up margin. */
+  .credit.keyscredit{margin-top:14px;margin-bottom:0}
 
   /* ---------- video grid ---------- */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
@@ -506,6 +509,8 @@
       <kbd>M</kbd><span>mute</span>
       <span style="margin-left:auto"><a href="/game/" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none">Open full screen ↗</a></span>
     </div>
+
+    <p class="credit keyscredit">built with <b>$ARIA</b></p>
   </section>
 
   <footer id="buy">
