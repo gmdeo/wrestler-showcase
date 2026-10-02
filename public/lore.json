@@ -1,32 +1,95 @@
-[
-  {
-    "tag": "THE ORIGIN",
-    "text": "The Wrestler is a cosmic grappler who never taps out. He trains in nebulae, pins FUD, and escapes those selling the move on his way to Andromeda.",
-    "src": "Lore"
-  },
-  {
-    "tag": "THE PROGRAMME",
-    "text": "Wrestlers are tenacious, hard-working, no-nonsense, tough SOBs. The Programme keeps the score the same way a wrestling room does: live numbers, hold times on the wall, losses posted where everyone can see them.",
-    "src": "Lore"
-  },
-  {
-    "tag": "THE PAIR",
-    "text": "$WRESTLER is paired with $GLXY on Robinhood Chain. Two cards, one arena — the grappler and the galaxy.",
-    "src": "Lore"
-  },
-  {
-    "tag": "NEVER TAP OUT",
-    "text": "He never taps out. He pins the chart. His only weakness is paper hands.",
-    "src": "Lore"
-  },
-  {
-    "tag": "THE ROSTER",
-    "text": "$RUGPULL waits in the ring. The Grind Squad buys weekly and never talks about it. The Takedown Crew adds on every red day. The Scramble Group moves in and out of position.",
-    "src": "Lore"
-  },
-  {
-    "tag": "THE ARENA",
-    "text": "Tonight in the Galaxy Arena. Commissioner Galaxy presides. The galaxy contracts… then EXPANDS.",
-    "src": "Lore"
-  }
-]
+{
+  "rows": [
+    {
+      "id": "rowA",
+      "handle": "@wrestler_galaxy",
+      "name": "Galaxy Wrestler Programme",
+      "avatar": "avatars/wrestler.jpg",
+      "url": "https://x.com/wrestler_galaxy/status/2100644501316362572",
+      "label": "The Record — @wrestler_galaxy",
+      "chunks": [
+        { "tag": "THE SENTENCE", "text": "It all started with Mike Novogratz saying, \u201cI identify as a <b>wrestler</b>.\u201d" },
+        { "tag": "THE INTERSECTION", "text": "That sentence led to the intersection of <span class=\"gold\">$GLXY</span>, Robinhood Chain and a financial system moving onchain." },
+        { "tag": "A YEAR LATER", "text": "That sentence had an account, a token, and a market." },
+        { "tag": "THE LAUNCH", "text": "$WRESTLER launched on <span class=\"gold\">@o1_exchange</span>, paired against a GLXY-linked Stock Token on Robinhood Chain." },
+        { "tag": "NOT SUPERSATE", "text": "Not Galaxy\u2019s Superstate shares. Not Nasdaq GLXY. A crypto-native market formed around an onchain instrument that references the same public company." },
+        { "tag": "THE FOLLOW", "text": "The Wrestlers were wrestling and Mr. Novo saw that and chose to <b>give a follow</b>. Soon after that came the unfollow." },
+        { "tag": "SEP 14, 2026", "text": "Galaxy Digital\u2019s official account posted four words of its own. \u201c<b>Just dropped a follow \ud83d\udc40</b>\u201d \u2014 then followed @wrestler_galaxy. Next day, the follow was gone." },
+        { "tag": "DISCLOSURE", "text": "A follow is not an endorsement. A reply is not a partnership. An unfollow is not a verdict. It is part of the record. <b>The record is messy. The story underneath it is not.</b>" },
+        { "tag": "THE WAVE", "text": "Industries merging, or at least touching. The wave is <span class=\"gold\">REAL</span>. Pioneers like @VladTenev are betting big on it. Certain people you simply do not fade." },
+        { "tag": "STOCK TOKENS", "text": "Tokenized stock DEX volume hit <span class=\"gold\">$4.3B</span> in a week, up 127.8%, with its first $1B day. Robinhood held 66.3% of it." },
+        { "tag": "AGENTS \u2192", "text": "Agents \u2192 compute \u2192 energy \u2192 capital. The brains get cheaper. <b>The body does not.</b>" },
+        { "tag": "AN AGENT", "text": "An agent is a process, not a query. It plans, calls a tool, waits, tries again, spawns helpers, loops. Agentic workloads burn 100x the energy of a chat." },
+        { "tag": "TWO SIDES", "text": "One side is capital: trading, lending, staking, tokenization, institutional rails. The other is compute: land, power, data centers, AI and HPC. Most firms pick a lane. <b>Galaxy built across the gap.</b>" },
+        { "tag": "HELIOS", "text": "In late 2022, with crypto in pieces, Galaxy bought a distressed Bitcoin mine in Dickens County, West Texas for about <span class=\"gold\">$65 million</span>." },
+        { "tag": "STRANDED", "text": "Cheap land. Cheap power. Then mining margins broke and the hookup outvalued the machines. CoreWeave became the tenant. <b>A stranded hash farm became a factory for compute.</b>" },
+        { "tag": "IN STEEL", "text": "Novogratz has said demand for compute is not a cycle... it is a structural condition. Helios is that sentence in steel." },
+        { "tag": "SUPERSATE", "text": "September 2025: @galaxyhq partnered with Superstate so stockholders could hold tokenized Class A common shares. Those are actual SEC-registered $GLXY stock. Not a wrapper." },
+        { "tag": "DIFFERENT DOOR", "text": "Robinhood built a different door. Stock Tokens. 24/7 venues. Weekend volume while Nasdaq is closed. <b>Two approaches. One direction.</b>" },
+        { "tag": "NOT THE SAME", "text": "Superstate shares are registered common stock on the shareholder register. Robinhood Stock Tokens generally give economic exposure through a contractual claim. Different legal form. Different rails." },
+        { "tag": "MARKETS = SOFTWARE", "text": "Once a public-market name exists on programmable rails, more than price charts form around it. Applications. Liquidity. Communities. Agents. Culture." },
+        { "tag": "THE PATH", "text": "A sentence became a lore. The story became a meme. The meme became a community. <b>The community went onchain.</b>" },
+        { "tag": "THE BURN", "text": "On September 15, @altcoinist burned <span class=\"gold\">50 million $WRESTLER</span> \u2014 5% of supply \u2014 from his own holdings. Round 2 fees bought back and burned another 3,333,333.33." },
+        { "tag": "8.76%", "text": "Combined running total burnt: <span class=\"gold\">87.57 million tokens = 8.76% of supply.</span>" },
+        { "tag": "THE GLANCE", "text": "The company at the center of the story noticed. Then it looked away." },
+        { "tag": "WHAT THEY CANNOT", "text": "Wrestlers can live with rules. What they cannot live with is a market that only exists when someone important decides to look." },
+        { "tag": "THE CLAIM", "text": "If public markets are coming onchain, the first communities that show up should not have to pretend they imagined being seen. <b>They were here.</b>" },
+        { "tag": "SEQUENCE", "text": "We cannot tell you why the follows happened. We cannot tell you why the unfollows happened. <b>We can only tell you the sequence.</b>" },
+        { "tag": "THE MASKS", "text": "Galaxy is the work-hour mask. <b>WRESTLER is the overtime mask.</b> One builds. The other carries the story after the glance." },
+        { "tag": "STILL ON", "text": "The rails are real. The culture is already forming. And anyone who wants a seat can take one." },
+        { "tag": "NEVER TAP OUT", "text": "<b>Never tap out is the new HODL.</b> $WRESTLER." }
+      ]
+    },
+    {
+      "id": "rowB",
+      "handle": "@MemeLordEnki",
+      "name": "Prof. Enki",
+      "avatar": "avatars/enki.jpg",
+      "url": "https://x.com/MemeLordEnki/status/2101744737795367060",
+      "label": "The Thesis — @MemeLordEnki",
+      "chunks": [
+        { "tag": "THE CAVEMAN", "text": "Don\u2019t let the inner caveman <b>tap you out</b> of the next 100x." },
+        { "tag": "BACK IN TIME", "text": "Prof. Enki is taking you back to prehistoric times..." },
+        { "tag": "THE AMYGDALA", "text": "Your amygdala still thinks a red candle is a sharp-toothed kitty in the jungle that wants you for breakfast." },
+        { "tag": "THE HARDWARE", "text": "We built cities, art, music, rockets. <b>None of that updated the hardware.</b> Deep down most of us are still running survival code." },
+        { "tag": "ONE JOB", "text": "Your amygdala has one job: keep the meat alive long enough to copy itself." },
+        { "tag": "NO DIFFERENCE", "text": "It does not know the difference between a 5% dump, a client ghosting you, or a tiger in the bushes." },
+        { "tag": "THE ALARM", "text": "Alarm goes off. Cortisol hits. Brain starts writing end-of-the-world fanfic." },
+        { "tag": "NOT A BUG", "text": "It\u2019s not a bug. That\u2019s why Mr. Ugg-Zog-Tag didn\u2019t get eaten, and why you\u2019re here." },
+        { "tag": "IN 2026", "text": "That same alarm makes you overtrade, revenge trade, tap tap early, or sit in cash and miss the whole tingggg." },
+        { "tag": "THE MEMO", "text": "Your life is usually not in danger. <b>The circuitry never got the memo.</b>" },
+        { "tag": "NOTICE IT", "text": "You don\u2019t kill instinct. You notice it. Then you choose." },
+        { "tag": "TRIBES", "text": "We survivalmaxxed by forming tribes. Not to vibe at the fire \u2014 because that is the only play that worked." },
+        { "tag": "LONE WOLVES", "text": "<b>Lone wolves died.</b> Small trust bands shared the meat, watched each other\u2019s backs, and didn\u2019t fold when shit went down." },
+        { "tag": "300,000 YEARS", "text": "Status and reputation inside the group mattered because getting kicked out was a death sentence. That was the winning strategy for 300,000 years." },
+        { "tag": "CAVEMANMAXXED", "text": "So that\u2019s how I invest. Simple and cavemanmaxxed." },
+        { "tag": "LAYER 1", "text": "TA is only layer 5-7 for me. <b>Layer 1 is people.</b> A tight group with skin in the game and loyalty to the tribe compounds." },
+        { "tag": "THE SCOREBOARD", "text": "Money is just the scoreboard we invented over time. <b>Evolution still picks the winner.</b>" },
+        { "tag": "THE WINNER LIST", "text": "Delayed gratification. They keep their word. They show up after they get slapped. They make the group stronger instead of farming it. <b>They never tap out.</b>" },
+        { "tag": "CONVICTION", "text": "That\u2019s why $WRESTLER is my highest conviction bag since <span class=\"gold\">TIBBIR (1400x)</span> and <span class=\"gold\">SHIB (8000x)</span>. Same pattern." },
+        { "tag": "THE GAME", "text": "Do patterns predict the future? No. (kinda) I\u2019m fine being wrong in public. That\u2019s the game." },
+        { "tag": "THE EDGE", "text": "You don\u2019t need to be right every time. You need an edge. <b>Even 1% compounds if you don\u2019t tap.</b>" },
+        { "tag": "THE BURN", "text": "Treasury fees bought back and burned supply. First burn was <span class=\"gold\">6,767,676 \ud83e\udd3c</span>." },
+        { "tag": "THEN IT GOT STOOPID", "text": "Then the lore got stoopid in the best way." },
+        { "tag": "1.", "text": "@novogratz follows the $WRESTLER account after they posted a real biography on his life. <b>No AI slop.</b>" },
+        { "tag": "2.", "text": "Chart rips to ~5-6 mil. Minutes later, unfollow. <b>Wick looks like Nightmare on Elm Street.</b>" },
+        { "tag": "3.", "text": "Next day it\u2019s not the CEO but the nasdaq-listed @galaxyhq: \u201cDropped you a follow\u201d and a handshake. A day later, unfollow again." },
+        { "tag": "THE TEST", "text": "A regular meme would have tapped out at the first unfollow. GC would have went quiet." },
+        { "tag": "2x HIGHER", "text": "$WRESTLER stabilized <span class=\"gold\">2x higher</span> than where it was pre-follow. Show\u2019s on. \ud83c\udf7f" },
+        { "tag": "DOUBLES DOWN", "text": "The top holder @Altcoinist doubles down and burns <span class=\"gold\">50,000,000</span> of his own bag. That\u2019s 5% of supply. $70K. <b>It\u2019s onchain.</b>" },
+        { "tag": "THE RING", "text": "People are still in the ring. Getting up. <b>Not tapping out.</b>" },
+        { "tag": "ROUND 4", "text": "The whole groupchat is changing their PFPs to the @Nakamigos wrestler and round 4 is here." },
+        { "tag": "SHIB", "text": "SHIB had the same cultish pattern. Elon tweeted he doesn\u2019t own it \u2014 SHIB nuked, then got back up. The dog people never tapped out." },
+        { "tag": "TIBBIR", "text": "Then TIBBIR. Community active every day for two years. One reply nuked the chart 60-70%. Beside a few jeets, same cultish energy is forming with $WRESTLER." },
+        { "tag": "FUN FACT", "text": "<b>$WRESTLER is full of TIBBIR chads.</b>" },
+        { "tag": "SIX YEARS", "text": "This industry spent 6 years turning me into a wrestler anyway." },
+        { "tag": "THE SLOGAN", "text": "\u201cNever tap out\u201d is not a slogan. It\u2019s the opposite of what your nervous system wants when the candle goes red." },
+        { "tag": "SHARED THE MEAT", "text": "Wrestlers shared the meat. Sent bags to frens so they don\u2019t tap out early. <b>Burned supply instead of dumping it on the tribe.</b>" },
+        { "tag": "C.Y.T.A", "text": "Choose your tribe accordingly. C.Y.T.A" },
+        { "tag": "THE TEST ROUNDS", "text": "The test rounds only made the community bigger. The wrestlers keep standing up." },
+        { "tag": "NEVER TAP OUT", "text": "I\u2019m betting on the oldest strategy we got. <b>Round 4. Never tap out. \ud83e\udd3c</b>" },
+        { "tag": "PS", "text": "<b>Identify as a $WRESTLER.</b>" }
+      ]
+    }
+  ]
+}

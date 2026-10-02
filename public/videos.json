@@ -33,20 +33,20 @@
       "duration": 30
     },
     {
-      "slug": "cleaner-pointing",
-      "title": "Cleaner Pointing",
-      "caption": "Eyes on the prize.",
-      "src": "videos/cleaner-pointing.mp4",
-      "poster": "posters/cleaner-pointing.jpg",
-      "duration": 25
-    },
-    {
       "slug": "gta",
       "title": "GTA",
       "caption": "The streets remember. $WRESTLER takes the fight off-chain.",
       "src": "videos/gta.mp4",
       "poster": "posters/gta.jpg",
       "duration": 26
+    },
+    {
+      "slug": "wrestler-spidermeme",
+      "title": "Wrestler Spidermeme",
+      "caption": "Point at the prize. Never tap out.",
+      "src": "videos/wrestler-spidermeme.mp4",
+      "poster": "posters/wrestler-spidermeme.jpg",
+      "duration": 25
     }
   ]
 }

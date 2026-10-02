@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#07091c">
+<meta name="description" content="$WRESTLER GALAXY: a pixel-art rhythm wrestling game. Follow the Flow Lane, keep control, never tap out.">
+<title>$WRESTLER GALAXY</title>
+<link rel="icon" href="wrestler-bust.png">
+<style>
+  html, body { margin: 0; height: 100%; background: #07091c; overflow: hidden; touch-action: none; }
+  body { display: grid; place-items: center; }
+  canvas { display: block; image-rendering: pixelated; image-rendering: crisp-edges; outline: none; }
+  #mute {
+    position: fixed; top: 16%; right: 8px; z-index: 2; opacity: .75;
+    font: 12px/1 monospace; color: #e5e5e5; background: #0b1238;
+    border: 2px solid #35bdd2; padding: 6px 8px; cursor: pointer;
+  }
+  #mute:focus-visible { outline: 2px solid #f02e98; outline-offset: 2px; }
+  #mute.is-hidden { display: none; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+</head>
+<body>
+  <h1 class="sr-only">$WRESTLER GALAXY</h1>
+  <p class="sr-only">A rhythm wrestling game. Press the D, F, J and K keys, arrow keys, gamepad buttons, or tap the four lane columns on the left as notes reach the line. Press Enter to start.</p>
+  <canvas id="game" tabindex="0" aria-label="$WRESTLER GALAXY game screen"></canvas>
+  <button id="mute" type="button" aria-pressed="false">Sound on</button>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
