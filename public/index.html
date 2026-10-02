@@ -188,6 +188,20 @@
   }
   .ca button:hover{background:var(--cyan);color:var(--ink)}
 
+  /* Grey variant, sitting under the contract box. */
+  .ca.donate{
+    margin-top:10px;
+    border-style:solid;border-color:#4a5070;
+    background:linear-gradient(180deg,rgba(58,63,92,.42),rgba(40,44,68,.42));
+  }
+  .ca.donate .dtext{
+    font-size:12.5px;color:#b9c0e0;letter-spacing:.01em;
+  }
+  .ca.donate .dtext b{color:#e9ecff;font-weight:600}
+  .ca.donate code{color:#cfd5ef}
+  .ca.donate button{border-color:#6d7599;color:#cfd5ef;background:rgba(30,34,56,.7)}
+  .ca.donate button:hover{background:#6d7599;color:#0a0620;border-color:#6d7599}
+
   /* ---------- section ---------- */
   section{padding:clamp(56px,9vw,104px) clamp(16px,4vw,48px);max-width:1200px;margin:0 auto}
   .shead{display:flex;align-items:baseline;gap:18px;margin-bottom:14px;flex-wrap:wrap}
@@ -423,6 +437,13 @@
       <code id="ca">0xaB528169DCC80d68837a33b1e2b866bB7D7EE301</code>
       <button id="copyca" type="button">Copy CA</button>
     </div>
+
+    <div class="ca donate">
+      <span class="lab">Keep the lights on</span>
+      <span class="dtext">Donate <b>$WRESTLER</b> · <b>$GLXY</b> · <b>$ARIA</b> · <b>$TIBBIR</b> to keep this site going</span>
+      <code id="donate">0x8C4eA7a94769214345adF2f344d711A03Ae2edB8</code>
+      <button id="copydonate" type="button">Copy address</button>
+    </div>
   </header>
 
   <section id="tapes">
@@ -641,17 +662,21 @@ fetch('lore.json').then(function(r){return r.json()}).then(function(data){
   });
 });
 
-/* ---------------- copy CA ---------------- */
-document.getElementById('copyca').addEventListener('click',function(){
-  var b=this,ca=document.getElementById('ca').textContent.trim();
-  navigator.clipboard.writeText(ca).then(function(){
-    b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy CA'},1600);
-  }).catch(function(){
-    var t=document.createElement('textarea');t.value=ca;document.body.appendChild(t);t.select();
-    try{document.execCommand('copy');b.textContent='Copied ✓'}catch(_){b.textContent='Copy failed'}
-    t.remove();setTimeout(function(){b.textContent='Copy CA'},1600);
+/* ---------------- copy buttons ---------------- */
+function wireCopy(btnId,codeId,label){
+  var btn=document.getElementById(btnId);if(!btn)return;
+  btn.addEventListener('click',function(){
+    var b=this,txt=document.getElementById(codeId).textContent.trim();
+    function done(){b.textContent='Copied ✓';setTimeout(function(){b.textContent=label},1600)}
+    navigator.clipboard.writeText(txt).then(done).catch(function(){
+      var t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();
+      try{document.execCommand('copy');done()}catch(_){b.textContent='Copy failed'}
+      t.remove();
+    });
   });
-});
+}
+wireCopy('copyca','ca','Copy CA');
+wireCopy('copydonate','donate','Copy address');
 
 /* ---------------- game lazy load ----------------
    The 2D game is vendored at /game/ (same origin) and loaded in an iframe.
